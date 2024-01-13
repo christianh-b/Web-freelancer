@@ -1,0 +1,289 @@
+:root {
+    --white: #ffffff;
+    --dark: #212121;
+    --primary: #ffc107;
+    --secondary: #0097a7;
+    --gray: #757575;
+    --background: #dfe9f3;
+    
+    
+}
+
+/* GLOBALES */
+
+/* Para usar unidad de medida rem y que 1rem == 10px */
+html {
+        font-size: 62.5%;
+        box-sizing: border-box; /*Hack para box model*/
+        scroll-snap-type: y mandatory;
+    }
+
+/* EFECTO DE SCROLL */
+.services, .nav-pri, section fieldset {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+    body {
+        font-size: 16px;
+        font-family: 'Krub', sans-serif;
+
+        /* Fondo con degrade */
+        background-image: linear-gradient(to top, var(--background) 0%, var(--white) 100%);
+    }
+
+    *, *:before, *:after {
+        box-sizing: inherit;
+    }
+
+.sombra {
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.55);
+    box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.55);
+    background-color: var(--white);
+    padding: 1rem;
+    margin: 1.5rem;
+    border-radius: 1rem;
+}
+
+    /* Tipografia */
+    
+    h1 {
+        font-size: 3.8rem;
+    }
+    
+    h2 {
+        font-size: 2.8rem;
+    }
+    
+    h3 {
+        font-size: 1.8rem;
+    }
+    
+    h1, h2, h3 {
+        text-align: center;
+    }
+.container {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.button {
+    background-color: var(--secondary);
+    border: none;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 1rem 1.5rem;
+    border-radius: .5rem;
+    text-transform: uppercase;
+    margin-top: 1.2rem;
+    width: 80%;
+    text-align: center;
+}
+ 
+.button:hover {
+    cursor: pointer;
+}
+
+/* TITULOS */
+
+.title span {
+    font-size: 2rem;
+    color: var(--secondary);
+}
+
+/* UTILIDADES */
+
+.send .button {
+    width: 100%;
+}
+
+.nav-bg {
+    background-color: var(--secondary);
+}
+/* NAVEGACION PRINCIPAL */
+
+
+.nav-pri {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 480px) {
+    .nav-pri {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    
+    .button {
+        width: auto;
+    }
+ }
+
+.nav-pri a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: var(--white);
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+
+}
+
+.nav-pri a:hover {
+    background-color: var(--primary);
+    color: var(--dark);
+}
+
+/* HERO */
+
+.hero {
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45rem;
+
+    /* El padre tiene que tener posicion relativa para que el hijo se posicione de manera absoluta */
+
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.hero-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    /* Transparencia en la imagen de fondo */
+    background-color: rgb(0 0 0 / 70%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.hero-content h2, .hero-content p{
+    color: var(--white);
+}
+
+/* SERVICIOS */
+
+@media (min-width: 768px) {
+    .services {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .send .button {
+        width: 25%;
+    }
+
+    .send {
+        display: flex;
+        justify-content: flex-end;
+    }
+ }
+
+
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--primary);
+    height: 13rem;
+    width: 13rem;
+    border-radius: 50%;
+    margin: 0 auto;
+}   
+
+.services-details h3 {
+    font-weight: normal;
+    color: var(--secondary);
+}
+
+.services-details p {
+    text-align: center;
+    line-height: 2rem;
+}
+
+/* FORMULARIO DE CONTACTO */
+
+.form {
+    background-color: var(--gray);
+    width: min(60rem, 100%); /* forma de ahorrar mediaqueri, si tiene espacio de sobra ocupa los 60 rem y sino el 100%*/
+    padding: 2rem;
+    border-radius: 1rem;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .form-fields {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    
+    }
+    
+    .field:nth-child(3),
+    .field:nth-child(4) {
+        grid-column: 1 / 3;
+    }
+    
+
+ }
+
+.form fieldset {
+    border: none;
+}
+
+fieldset legend {
+    text-transform: uppercase;
+    color: var(--primary);
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.form-fields {
+    margin-bottom: 1rem;
+}
+
+.field label{
+    font-weight: bold;
+    color: var(--white);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.field {
+    margin-bottom: 1rem;
+}
+
+.field input[type="text"],
+.field input[type="tel"],
+.field input[type="email"],
+.field textarea {
+    border: none;
+    border-radius: .5rem;
+    width: 100%;
+    padding: 1.5rem;
+}
+
+
+/* FOOTER */
+
+footer p{
+    text-align: center;
+    font-weight: bold;
+}
+
+.footer-p {
+    font-size: 1.3rem;
+    color: var(--secondary);
+}
